@@ -1,0 +1,32 @@
+version: "3"
+
+volumes:
+  local_postgres_data: {}
+
+services:
+  web:
+    build: ./Server
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    depends_on:
+      - db
+    volumes:
+      - ./server:/app
+      - /app/PatientSearch/bin
+      - /app/PatientSearch/obj
+
+  db:
+    image: postgres:11.1
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+
+  client:
+    build: ./Client
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./client:/app
