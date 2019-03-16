@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-run_cmd="dotnet watch -p PearsonSearch run"
+run_cmd="dotnet watch -p PersonSearch run"
 
 dotnet restore
 
