@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PersonSearch.Context;
+using PersonSearch.Repositories;
 
 namespace PersonSearch
 {
@@ -27,6 +28,7 @@ namespace PersonSearch
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<PersonRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
             services.AddEntityFrameworkNpgsql().AddDbContext<ApiDbContext>(options =>
