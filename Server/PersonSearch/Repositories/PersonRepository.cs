@@ -24,7 +24,7 @@ namespace PersonSearch.Repositories
 
         public async Task<List<Person>> GetPeopleAsync()
         {
-            return await _context.People.ToListAsync();
+            return await _context.People.Include("Address").ToListAsync();
         }
 
         public async Task<Person> AddPersonAsync(Person person)

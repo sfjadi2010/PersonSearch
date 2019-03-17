@@ -8,14 +8,16 @@ namespace PersonSearch.Models
     public enum AddressType
     {
         Home,
-        Office
+        Office,
+        Unknown
     }
 
     public enum ContactType
     {
         Home,
         Office,
-        Cell
+        Cell,
+        Unknown
     }
 
     public enum Gender
